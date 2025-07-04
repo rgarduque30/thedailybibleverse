@@ -10,6 +10,10 @@ const proverbs = {
         1: "My child, listen to what I say, and treasure my commands.",
         2: "Tune your ears to wisdom, and concentrate on understanding.",
         3: "Cry out for insight, and ask for understanding."
+    },
+    3: {
+        1: "My child, never forget the things I have taught you. Store my commands in your heart.",
+        2: "If you do this, you will live many years, and your life will be satisfying."
     }
 };
 
@@ -22,11 +26,12 @@ const getRandomBookChapter = book => {
 
     return number;
 };
-const getRandomBookChapterVerse = book => Math.floor(Math.random() * Object.keys(book[getRandomBookChapter(book)]).length) + 1;
+
+const getRandomBookChapterVerse = (book, chapter) => Math.floor(Math.random() * Object.keys(book[chapter]).length) + 1;
 
 /* Generate Random Verse */
 const book = proverbs;
 const chapter = getRandomBookChapter(book);
-const verse = getRandomBookChapterVerse(book);
+const verse = getRandomBookChapterVerse(book, chapter);
 console.log(`${book.bookname} ${chapter}:${verse}`);
 console.log(`${book[chapter][verse]}`);
